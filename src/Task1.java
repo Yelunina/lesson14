@@ -22,7 +22,6 @@ public class Task1 {
         sequence3(array);
         System.out.println(Arrays.toString(array));
 
-
     }
 
     // последовательность 1: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20

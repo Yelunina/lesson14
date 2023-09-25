@@ -5,45 +5,43 @@
 пример: дано: {10,4,2,3, 1}, N = 2;. Результат: {10,4,1,3, 1}
  */
 
+
 public class Task2 {
     public static void main(String[] args) {
         int[] arr = new int[10];
+        int elementN = 83;
         printArray(arr);
         fillArray(arr, 10, 99);
         printArray(arr);
-        int index = search(arr, 83);
-        System.out.println("Index = " + index);
-        int min = minArray(arr);
-        System.out.println("Min = " + min);
-        int n = swapNOnMin(arr, 83);
-        System.out.println("N = " + n);
+
+        int index = searchElementIndex(arr, 83);
+        System.out.println("ElementIndex = " + index);
+        int min = searchMinElementArray(arr);
+        System.out.println("MinElementIndex = " + min);
+
+        if (index >= 0) {
+            arr[index] = arr[min];
+        } else {
+            System.out.println("Element " + elementN + " not found");
+        }
         printArray(arr);
 
-
     }
-
-
-    public static int swapNOnMin(int[] arr, int value) {
-        int t = search(arr, value);
-        int n = minArray(arr);
-        t = n;
-        n = t;
-        return t;
-    }
-
-    public static int minArray(int[] arr) {
-        int min = arr[0];
+    public static int searchMinElementArray(int[] arr) {
+        int minElementIndex = 0;
+        int min = arr[minElementIndex];
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < min) {
                 min = arr[i];
+                minElementIndex = i;
             }
         }
-        return min;
+        return minElementIndex;
     }
 
-    public static int search(int[] arr, int value) {
+    public static int searchElementIndex(int[] arr, int elementN) {
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == value) {
+            if (arr[i] == elementN) {
                 return i;
             }
         }
@@ -62,5 +60,4 @@ public class Task2 {
         }
         System.out.println();
     }
-
 }
